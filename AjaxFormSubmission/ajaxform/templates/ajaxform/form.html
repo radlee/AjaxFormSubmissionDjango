@@ -1,0 +1,29 @@
+{% extends 'ajaxform/index.html' %}
+
+{% block content %}
+<h2>Welcome {{name}}</h2>
+
+  <h1>Sign Up to become one of our Second Ajax Users</h1>
+
+  {% for user in users %}
+  <p>
+    Name : {{user.name}}
+  </p>
+  <p>
+    Email: {{user.email}}
+  </p>
+  {% endfor %}
+  <p>
+    {{user}}
+  </p>
+
+  <div class="form-container">
+
+    <form class="my-ajax-form"  method="post" data-url="/">
+      {% csrf_token %}
+      {{form.as_p}}
+      <input type="submit" name="" value="submit">
+    </form>
+
+  </div>
+{% endblock %}
